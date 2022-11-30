@@ -13,11 +13,9 @@
 
 ## Установка
 ```bash
-$ git clone git@github.com:z-ev/tms.git
-$ cd tms && cp .env.example .env
+$ git clone git@github.com:z-ev/tms.git && cd tms 
+$ cp .env.example .env
+$ echo "127.0.0.1 tms.loc www.tms.loc" | sudo tee -a /etc/hosts
 $ make up
-```
-Добавить строку в hosts файл
-```bash
-127.0.0.1 tms.loc www.tms.loc
+$ xdg-open http://tms.loc:8089
 ```
