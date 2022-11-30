@@ -1,4 +1,10 @@
 <?php
+/*
+ * Copyright © 2022 Z-EV.
+ * All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -13,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -23,6 +28,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

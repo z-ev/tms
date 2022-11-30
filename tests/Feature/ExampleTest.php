@@ -1,4 +1,10 @@
 <?php
+/*
+ * Copyright © 2022 Z-EV.
+ * All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace Tests\Feature;
 
@@ -12,7 +18,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_the_application_returns_a_successful_response()
+    public function testTheApplicationReturnsASuccessfulResponse()
     {
         $response = $this->get('/');
 

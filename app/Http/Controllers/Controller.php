@@ -1,4 +1,10 @@
 <?php
+/*
+ * Copyright © 2022 Z-EV.
+ * All rights reserved.
+ */
+
+declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -9,5 +15,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 }
