@@ -1,0 +1,37 @@
+# Nginx configuration
+server {
+        listen 80 default_server;
+        server_name ${SERVER_NAME} www.${SERVER_NAME};
+
+        charset utf-8;
+
+        root ${PROJECT_PATCH}/${ROOT};
+        index index.php;
+
+        error_log  ${PROJECT_PATCH}/${ROOT}/error-nginx.log;
+        access_log ${PROJECT_PATCH}/${ROOT}/access-nginx.log;
+
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        location ~* \.php$ {
+               try_files $uri =404;
+               fastcgi_pass ${PHP_HOST}:9000;
+               fastcgi_index index.php;
+               fastcgi_read_timeout 1200;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+               include fastcgi_params;
+               fastcgi_buffer_size 128k;
+               fastcgi_buffers 4 256k;
+               fastcgi_busy_buffers_size 256k;
+        }
+
+        location ~ /\. {
+            deny all;
+        }
+
+        client_max_body_size 512m;
+        client_body_buffer_size 64m;
+    }
