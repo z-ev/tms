@@ -1,0 +1,19 @@
+---
+name: static analys
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: PHP-CS
+        uses: docker://jakzal/phpqa:php8.0-alpine
+        with:
+          args: phpcs -s --extensions=php --standard=PSR12 --report=junit -n app/
+...
