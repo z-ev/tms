@@ -15,5 +15,8 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Artisan::command('inspire', function () {
+    /**
+     * @psalm-suppress InvalidScope
+     */
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');

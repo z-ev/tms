@@ -47,6 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+        /**
+         * @psalm-suppress UnusedClosureParam
+         */
         $this->reportable(function (Throwable $e) {
         });
     }
