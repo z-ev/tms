@@ -43,7 +43,12 @@ stat: ## Run Static Analysis (Psalm & PHPStan)
 	$(PM_EXEC) composer run phpstan
 
 tc: ## Run tests with HTML coverage
-	$(PM_EXEC) php -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-html coverage
+	$(PM_EXEC) php -dmemory_limit=-1 -dxdebug.mode=coverage vendor/bin/paratest \
+      --configuration=phpunit.xml \
+      --runner='\Illuminate\Testing\ParallelRunner' \
+      --coverage-html ./public/coverage/ \
+      --log-junit ./public/coverage/report.xml \
+      --coverage-text
 
 rdb: ## Wipe and migrate db with seeds
 	$(PM_EXEC) php ./artisan db:wipe
