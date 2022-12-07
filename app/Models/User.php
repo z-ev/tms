@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,6 +18,37 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+
+    public const ROLES = [
+        self::ROLE_ADMIN,
+        self::ROLE_MERCHANT,
+        self::ROLE_OPERATOR,
+        self::ROLE_CLIENT,
+    ];
+
+    public const ROLE_ADMIN    = 'ROLE_TOMS_ADMIN';
+    public const ROLE_MERCHANT = 'ROLE_TOMS_MERCHANT';
+    public const ROLE_OPERATOR = 'ROLE_TOMS_OPERATOR';
+    public const ROLE_CLIENT   = 'ROLE_TOMS_CLIENT';
+
+    public const NOTIFY_EVENTS = [
+        'order' => [
+            'created',
+            'updated',
+            'refunded',
+        ],
+    ];
+
+    public const NOTIFICATION_OPTIONS = [
+        'telegram' => [
+            'list'   => [],
+            'events' => self::NOTIFY_EVENTS,
+        ],
+    ];
+
+    public const SETTINGS = [
+        'notification' => self::NOTIFICATION_OPTIONS,
+    ];
 
     /**
      * The attributes that are mass assignable.
