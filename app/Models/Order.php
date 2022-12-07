@@ -104,6 +104,10 @@ class Order extends BaseModel
         'refunded_at',
     ];
 
+    protected $casts = [
+        'items' => 'array',
+    ];
+
     /**
      * @return HasOne<User>
      */
