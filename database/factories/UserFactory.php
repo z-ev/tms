@@ -34,6 +34,7 @@ class UserFactory extends Factory
             'merchant_id'       => DatabaseSeeder::MOCK_MERCHANT_ID,
             'roles'             => json_encode([User::ROLE_ADMIN]),
             'settings'          => json_encode([User::SETTINGS]),
+            'status_id'         => User::STATUS_ACTIVE,
         ];
     }
 

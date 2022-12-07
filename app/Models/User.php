@@ -32,6 +32,14 @@ class User extends Authenticatable
     public const ROLE_OPERATOR = 'ROLE_TOMS_OPERATOR';
     public const ROLE_CLIENT   = 'ROLE_TOMS_CLIENT';
 
+    public const STATUS_ACTIVE = 1;
+    public const STATUS_BAN    = 2;
+
+    public const STATUSES = [
+        self::STATUS_ACTIVE,
+        self::STATUS_BAN,
+    ];
+
     public const NOTIFY_EVENTS = [
         'order' => [
             'created',

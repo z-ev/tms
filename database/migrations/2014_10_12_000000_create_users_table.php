@@ -28,6 +28,7 @@ return new class() extends Migration {
             $table->uuid('merchant_id')->nullable();
             $table->json('roles')->default(json_encode([User::ROLE_ADMIN]))->nullable();
             $table->json('settings')->default(json_encode([User::SETTINGS]))->nullable();
+            $table->tinyInteger('status_id')->default(User::STATUS_ACTIVE);
             $table->rememberToken();
             $table->timestamps();
         });
