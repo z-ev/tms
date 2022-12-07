@@ -68,6 +68,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'roles',
     ];
 
     /**
@@ -87,7 +88,25 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'roles'             => 'array',
+        'settings'          => 'array',
     ];
+
+    /**
+     * @param array<string> $roles
+     *
+     * @return bool
+     */
+    public static function isValidRoles(array $roles): bool
+    {
+        foreach ($roles as $role) {
+            if (!in_array($role, self::ROLES, true)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     /**
      * @return HasOne<Merchant>
