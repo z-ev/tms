@@ -117,6 +117,6 @@ class Order extends BaseModel
      */
     public function merchant(): HasOne
     {
-        return $this->hasOne(Merchant::class, 'merchant_id', 'user_id');
+        return $this->hasOne(Merchant::class, 'id', 'merchant_id');
     }
 }
