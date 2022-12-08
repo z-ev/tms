@@ -20,7 +20,12 @@ class MerchantSeeder extends Seeder
      */
     public function run()
     {
-        Merchant::factory(1)->create(['id' => DatabaseSeeder::MOCK_MERCHANT_ID]);
+        Merchant::factory(1)->create(
+            [
+                'id'   => DatabaseSeeder::MOCK_MERCHANT_ID,
+                'name' => DatabaseSeeder::MOCK_MERCHANT_NAME,
+            ]
+        );
         Merchant::factory(9)->create();
     }
 }

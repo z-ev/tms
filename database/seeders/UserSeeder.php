@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
+            'email'       => 'admin@admin.ru',
             'roles'       => json_encode([User::ROLE_ADMIN]),
             'merchant_id' => DatabaseSeeder::MOCK_MERCHANT_ID,
             'status_id'   => User::STATUS_ACTIVE,

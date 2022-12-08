@@ -24,7 +24,7 @@ return new class() extends Migration {
                 ->primary()
                 ->unique();
             $table->string('number')->index();
-            $table->uuid('user_id')->index();
+            $table->bigInteger('user_id')->index();
 
             $table->uuid('merchant_id')->index()->nullable();
 
