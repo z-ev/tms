@@ -1,4 +1,4 @@
-# Track Order Management System (TMS)
+# Track Order Management System (TOMS)
 [Trunk Based Development](https://trunkbaseddevelopment.com/)
 
 [Standard version](https://github.com/conventional-changelog/standard-version)
@@ -11,6 +11,9 @@
 1. [Ценность](#ценность)
 2. [Техническое задание](#техническое-задание)
 3. [Установка](#установка)
+4. [Тесты](#тесты)
+5. [Статический анализ](#статический-анализ)
+6. [Документация по API](#документация-по-API)
 
 ## Ценность
 Необходимо написать паттерн цепочку обязанностей для проверки запроса от клиента.
@@ -23,7 +26,7 @@
 ## Техническое задание
 Реализовать систему отслеживания информации по заказам.
 
-Роли пользователей: Клиент, Оператор, Поставщик, Администратор
+Роли пользователей: Гость, Клиент, Оператор, Поставщик, Администратор
 
 Клиент:
 может запросить информацию по заказу включая историю статусов и комментариев
@@ -42,3 +45,28 @@ $ echo "127.0.0.1 tms.loc www.tms.loc" | sudo tee -a /etc/hosts
 $ make up
 $ xdg-open http://tms.loc:8089
 ```
+
+## Тесты
+```bash
+$ make tc
+$ xdg-open http://tms.loc/coverage/index.html
+```
+### Coverage репорт
+http://tms.loc/coverage/index.html
+
+## Статический анализ
+```bash
+$ make stat
+```
+или по отдельности:
+```bash
+$ make phpstan
+$ make psalm
+```
+
+# Документация по API
+## Swagger
+http://tms.loc/api/documentation
+
+## Postman
+[Скачать коллекцию для импорта](./docs/TOMS.postman_collection.json)
