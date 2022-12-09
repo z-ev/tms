@@ -175,7 +175,7 @@ class Order extends BaseModel
             ]);
         }
 
-        $this->status_id = $status['id'];
+        $this->status_id = $statusId;
         $this->save();
 
         $statusHistory = new StatusHistory([

@@ -32,7 +32,12 @@ class CheckPermissions
     public function handle(Request $request, Closure $next)
     {
         /** @var User $user */
-        $user     = Auth::user();
+        $user = Auth::user();
+
+        if (!$user) {
+            return $next($request);
+        }
+
         $mainRole = User::getMainRole($user->roles);
 
         $route = $request->route();

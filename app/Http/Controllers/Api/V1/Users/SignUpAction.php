@@ -84,9 +84,8 @@ class SignUpAction extends JsonApiController
         }
 
         $roles               = $data['roles'];
-        $data['roles']       = json_encode($data['roles']);
-        $data['merchant_id'] = $data['merchantId'];
-        $data['status_id']   = $data['statusId'];
+        $data['merchant_id'] = $data['merchantId'] ?? '';
+        $data['status_id']   = $data['statusId'] ?? User::STATUS_ACTIVE;
         $user                = User::create($data);
 
         return MetaResponse::make([

@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace App\JsonApi\Authorizers;
 
+use App\JsonApi\Authorizers\Traits\AuthTrait;
 use App\Models\User;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use LaravelJsonApi\Contracts\Auth\Authorizer;
-use LaravelJsonApi\Laravel\Routing\Route;
 
 class BaseAuthorizer implements Authorizer
 {
+    use AuthTrait;
     /**
      * @var User|null
      */
@@ -171,50 +172,5 @@ class BaseAuthorizer implements Authorizer
     public function showRelated(Request $request, object $model, string $fieldName): bool
     {
         return $this->checkPerms($request, $model);
-    }
-
-    /**
-     * @param object $model
-     *
-     * @return bool
-     */
-    public function ownSupplier(object $model): bool
-    {
-        return $this->user->isAdministrator()
-            || ($this->user->merchant_id !== null
-            && $this->user->merchant_id === $model->merchant_id);
-    }
-
-    /**
-     * @param Request $request
-     * @param object  $model
-     *
-     * @return bool
-     */
-    protected function checkPerms(Request $request, object $model): bool
-    {
-        $route = $request->route();
-
-        $resource = $route->defaults[Route::RESOURCE_RELATIONSHIP]
-            ?? $route->defaults[Route::RESOURCE_TYPE]
-            ?? null;
-
-        $action = explode('.', $route->action['as']);
-        $action = end($action);
-
-        if (!array_key_exists($resource, $this->permissions)
-            || !array_key_exists($action, $this->permissions[$resource])) {
-            return false;
-        }
-
-        if ($this->permissions[$resource][$action] == 'own') {
-            return $this->ownSupplier($model);
-        }
-
-        if ($this->permissions[$resource][$action] == 'all') {
-            return true;
-        }
-
-        return false;
     }
 }

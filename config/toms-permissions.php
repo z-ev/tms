@@ -19,6 +19,7 @@ if (!defined( 'PERMISSIONS_LIST_ALL')) {
             'attachRelationship' => 'all',
             'detachRelationship' => 'all',
             'showRelated' => 'all',
+            'updateStatus' => 'all',
         ]);
 }
 
@@ -35,6 +36,7 @@ if (!defined( 'PERMISSIONS_LIST_OWN')) {
             'attachRelationship' => 'own',
             'detachRelationship' => 'own',
             'showRelated' => 'own',
+            'updateStatus' => 'own',
         ]);
 }
 
@@ -76,6 +78,7 @@ return [
                 'update' => 'own',
                 'showRelationship' => 'own',
                 'showRelated' => 'own',
+                'updateStatus' => 'own',
             ],
         ]
     ],
