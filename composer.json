@@ -6,20 +6,26 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "darkaonline/l5-swagger": "^8.4",
         "friendsofphp/php-cs-fixer": "^3.13",
+        "goldspecdigital/laravel-eloquent-uuid": "^9.0",
         "guzzlehttp/guzzle": "^7.2",
+        "laravel-json-api/laravel": "^2.4",
+        "laravel-notification-channels/telegram": "^3.0",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "nunomaduro/larastan": "^2.2",
         "vimeo/psalm": "^5.0"
     },
     "require-dev": {
+        "brianium/paratest": "^6.6",
         "fakerphp/faker": "^1.9.1",
+        "laravel-json-api/testing": "^1.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "nunomaduro/larastan": "^2.2",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },
@@ -55,7 +61,7 @@
         ],
         "phpstan": [
             "Composer\\Config::disableProcessTimeout",
-            "./vendor/bin/phpstan analyse --memory-limit=2G -c phpstan.neon"
+            "./vendor/bin/phpstan analyse --memory-limit=2G -c ./phpstan.neon"
         ],
         "psalm": [
             "Composer\\Config::disableProcessTimeout",

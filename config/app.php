@@ -1,4 +1,8 @@
 <?php
+/*
+ * Copyright © 2022 Z-EV.
+ * All rights reserved.
+ */
 
 use Illuminate\Support\Facades\Facade;
 
@@ -194,6 +198,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 

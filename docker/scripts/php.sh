@@ -10,6 +10,7 @@ do
     sleep 5
 done
 php artisan migrate
+php artisan l5-swagger:generate
 
 cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 

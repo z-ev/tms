@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "3af92e93-6ebf-44cf-9538-41265030a506",
+		"name": "TOMS FIXPRICE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Actions",
+					"item": [
+						{
+							"name": "UpdateStatus",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "default"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"statusId\": 1,\n    \"reason\": \"experiment\"\n}"
+								},
+								"url": {
+									"raw": "http://tms.loc/api/v1/orders/:id/actions/update-status",
+									"protocol": "http",
+									"host": [
+										"tms",
+										"loc"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										":id",
+										"actions",
+										"update-status"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1a917e36-ec48-3c8b-897b-660247e1a004"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"data\": {\n            \"type\": \"orders\",\n            \"id\": \"1a917e36-ec48-3c8b-897b-660247e1a001\",\n            \"attributes\": {\n                \"number\": \"TEST-ORDER-1\",\n                \"address\": \"г. Самара, ул. Ново-Садовая, д. 12, кв. 25\",\n                \"description\": \"Необходима бесконтактная доставка\",\n                \"merchantId\": \"c34cf7a9-b5a7-376a-967a-2866dd19f1d3\",\n                \"statusId\": 1,\n                \"userId\": 4,\n                \"weight\": 2.00,\n                \"totalAmount\": 60000,\n                \"totalAmountWithoutVat\": 50000,\n                \"totalVatAmount\": 10000,\n                \"currency\": \"₽\",\n                \"items\": [\n                    {\n                        \"title\": \"Набор контейнеров, Phibo, 4 шт.\",\n                        \"description\": \"Набор контейнеров, Phibo – прекрасное решение для хранения готовых блюд и продуктов. Крышки контейнеров украшены яркими новогодними изображениями. Возьмите с собой не только обед или перекус, но и праздничное настроение! В наборе 4 контейнера разных объёмов: 0,3 л, 0,45 л, 0,65 л, 1 л. Подходят для разогревания в микроволновке (только с приоткрытой крышкой). Можно мыть в посудомоечной машине. Состав: полипропилен.\",\n                        \"image\": \"https://img.fix-price.com/800x800/images/origin/origin/29fe27c855f02a131d569a91944008cf.jpg\",\n                        \"url\": \"https://fix-price.com/catalog/dlya-doma/p-5023964-nabor-konteynerov-hibo-4-sht\",\n                        \"sku\": \"SK-001\",\n                        \"baseMeasure\": \"шт.\",\n                        \"totalAmount\": 36000,\n                        \"totalAmountWithoutVat\": 30000,\n                        \"totalVatAmount\": 6000,\n                        \"qty\": 3,\n                        \"amount\": 12000,\n                        \"amountWithoutVat\": 10000,\n                        \"vatAmount\": 2000,\n                        \"vatPercent\": 20\n                    },\n                    {\n                        \"title\": \"Салфетки бумажные, Plushe, 2 слоя, 230 шт., в ассортименте\",\n                        \"description\": \"Салфетки бумажные, Plushe, станут Вашим помощником в личной гигиене и уборке. Коробка имеет удобную конструкцию, которая позволяет быстро и легко извлечь салфетки, даже когда они заканчиваются. В упаковке: 230 штук. Мягкие двухслойные салфетки подарят ощущение комфорта и чистоты. Состав: 100% первичная целлюлоза. Размер листа: 200х200 мм. Товар представлен в ассортименте.\",\n                        \"image\": \"https://img.fix-price.com/800x800/images/origin/origin/bf9ab895261d47912a4a7b32d91b2b81.jpg\",\n                        \"url\": \"https://fix-price.com/catalog/dlya-doma/p-5024542-salfetki-bumajnye-lushe-2-sloya-230-sht-v-assortimente\",\n                        \"sku\": \"SK-002\",\n                        \"baseMeasure\": \"шт.\",\n                        \"totalAmount\": 24000,\n                        \"totalAmountWithoutVat\": 20000,\n                        \"totalVatAmount\": 4000,\n                        \"qty\": 2,\n                        \"amount\": 12000,\n                        \"amountWithoutVat\": 10000,\n                        \"vatAmount\": 2000,\n                        \"vatPercent\": 20\n                    }\n                ],\n                \"refundedAmount\": 0,\n                \"refundedAmountWithoutVat\": 0,\n                \"refundedTotalVatAmount\": 0,\n                \"refundedTotalQty\": 0\n            }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://tms.loc/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"tms",
+								"loc"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://tms.loc/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"tms",
+								"loc"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://tms.loc/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"tms",
+								"loc"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test\",\n  \"email\": \"test99922@test.ru\",\n  \"password\": \"password\",\n  \"roles\": [\"ROLE_TOMS_CLIENT\",\"ROLE_TOMS_ADMIN\"]\n}"
+						},
+						"url": {
+							"raw": "http://tms.loc/api/v1/users/actions/signup",
+							"protocol": "http",
+							"host": [
+								"tms",
+								"loc"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"actions",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test99922@test.ru\",\n  \"password\": \"password\",\n}"
+						},
+						"url": {
+							"raw": "http://tms.loc/api/v1/users/actions/signin",
+							"protocol": "http",
+							"host": [
+								"tms",
+								"loc"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"actions",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
