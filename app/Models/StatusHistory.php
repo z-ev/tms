@@ -9,12 +9,24 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class StatusHistory extends Model
+class StatusHistory extends BaseModel
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'order_id',
+        'user_id',
+        'status_id',
+        'merchant_id',
+        'description',
+    ];
 
     /**
      * @return HasOne<User>

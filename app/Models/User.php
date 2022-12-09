@@ -25,12 +25,14 @@ class User extends Authenticatable
         self::ROLE_MERCHANT,
         self::ROLE_OPERATOR,
         self::ROLE_CLIENT,
+        self::ROLE_GUEST,
     ];
 
     public const ROLE_ADMIN    = 'ROLE_TOMS_ADMIN';
     public const ROLE_MERCHANT = 'ROLE_TOMS_MERCHANT';
     public const ROLE_OPERATOR = 'ROLE_TOMS_OPERATOR';
     public const ROLE_CLIENT   = 'ROLE_TOMS_CLIENT';
+    public const ROLE_GUEST    = 'ROLE_TOMS_GUEST';
 
     public const STATUS_ACTIVE = 1;
     public const STATUS_BAN    = 2;
@@ -68,6 +70,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'merchant_id',
+        'status_id',
         'roles',
     ];
 
@@ -109,10 +113,34 @@ class User extends Authenticatable
     }
 
     /**
+     * @param array<string, mixed> $roles
+     *
+     * @return string
+     */
+    public static function getMainRole(array $roles): string
+    {
+        $rolesWithWeight = [];
+
+        foreach ($roles as $role) {
+            $rolesWithWeight[$role] = config('toms-permissions.' . $role . '.weight');
+        }
+
+        return array_keys($rolesWithWeight, min($rolesWithWeight), true)[0] ?? self::ROLE_GUEST;
+    }
+
+    /**
      * @return HasOne<Merchant>
      */
     public function user(): HasOne
     {
         return $this->hasOne(Merchant::class, 'id', 'merchant_id');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdministrator(): bool
+    {
+        return in_array(self::ROLE_ADMIN, $this->roles, true);
     }
 }
