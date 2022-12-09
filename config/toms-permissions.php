@@ -55,7 +55,7 @@ return [
     User::ROLE_MERCHANT => [
         'weight' => 2,
         'throttle' => [
-            'maxAttempts' => 10,
+            'maxAttempts' => 40,
             'decayMinutes' => 1,
         ],
         'permissions' => [
@@ -66,7 +66,7 @@ return [
     User::ROLE_OPERATOR => [
         'weight' => 3,
         'throttle' => [
-            'maxAttempts' => 10,
+            'maxAttempts' => 30,
             'decayMinutes' => 1,
         ],
         'permissions' => [
@@ -82,7 +82,7 @@ return [
     User::ROLE_CLIENT => [
         'weight' => 4,
         'throttle' => [
-            'maxAttempts' => 10,
+            'maxAttempts' => 20,
             'decayMinutes' => 1,
         ],
         'permissions' => [
@@ -97,7 +97,7 @@ return [
     User::ROLE_GUEST => [
         'weight' => 5,
         'throttle' => [
-            'maxAttempts' => 2,
+            'maxAttempts' => 10,
             'decayMinutes' => 1,
         ],
         'permissions' => [],
