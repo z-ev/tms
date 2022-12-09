@@ -17,3 +17,6 @@ yarn-error.log
 /.idea
 /.vscode
 .php-cs-fixer.cache
+/public/coverage/
+/public/access-nginx.log
+/public/error-nginx.log
