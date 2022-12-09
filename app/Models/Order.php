@@ -10,6 +10,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Auth;
+use LaravelJsonApi\Core\Exceptions\JsonApiException;
+use Symfony\Component\HttpFoundation\Response;
 
 class Order extends BaseModel
 {
@@ -83,6 +86,7 @@ class Order extends BaseModel
     ];
 
     public const VIEW_ORDER_CREATED = 'order.created';
+    public const VIEW_ORDER_UPDATED = 'order.updated';
 
     protected $fillable = [
         'number',
@@ -123,5 +127,63 @@ class Order extends BaseModel
     public function merchant(): HasOne
     {
         return $this->hasOne(Merchant::class, 'id', 'merchant_id');
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function getStatus(): array
+    {
+        return self::STATUSES[array_search($this->status_id, array_column(self::STATUSES, 'id'), true)];
+    }
+
+    /**
+     * @param int    $statusId
+     * @param string $reason
+     *
+     * @throws JsonApiException
+     */
+    public function updateStatus(int $statusId, string $reason = ''): void
+    {
+        if ($this->status_id === $statusId) {
+            throw JsonApiException::error([
+                'status' => Response::HTTP_METHOD_NOT_ALLOWED,
+                'detail' => 'Данный статус уже был установлен',
+            ]);
+        }
+
+        $user = Auth::user();
+
+        $status = $this->getStatus();
+
+        if ($status == []) {
+            throw JsonApiException::error([
+                'status' => Response::HTTP_NOT_MODIFIED,
+                'detail' => 'Несуществующий статус',
+            ]);
+        }
+
+        if (
+            $status['variability'] == false
+            && !$user->isAdministrator()
+        ) {
+            throw JsonApiException::error([
+                'status' => Response::HTTP_NOT_MODIFIED,
+                'detail' => 'Несменяемый статус',
+            ]);
+        }
+
+        $this->status_id = $status['id'];
+        $this->save();
+
+        $statusHistory = new StatusHistory([
+            'order_id'    => $this->id,
+            'status_id'   => $status['id'],
+            'merchant_id' => $this->merchant_id,
+            'description' => (bool) $reason ? $status['title'] . ': ' . $reason : $status['title'],
+            'user_id'     => $user->id ?? null,
+        ]);
+
+        $statusHistory->save();
     }
 }

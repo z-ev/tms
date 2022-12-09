@@ -31,4 +31,18 @@ class OrderObserver
     {
         $this->notificator->sendNotifications($order, Order::VIEW_ORDER_CREATED);
     }
+
+    /**
+     * Handle the Order "created" event.
+     *
+     * @param Order $order
+     *
+     * @return void
+     */
+    public function updated(Order $order): void
+    {
+        if ($order->getOriginal('status_id') != $order->status_id) {
+            $this->notificator->sendNotifications($order, Order::VIEW_ORDER_UPDATED);
+        }
+    }
 }
