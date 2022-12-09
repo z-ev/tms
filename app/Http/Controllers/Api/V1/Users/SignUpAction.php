@@ -75,17 +75,19 @@ class SignUpAction extends JsonApiController
     public function __invoke(
         SignUpRequest $request
     ): MetaResponse {
-        $data             = $request->all();
+        $data = $request->all();
+
         $data['password'] = Hash::make($data['password']);
 
         if (!array_key_exists('roles', $data) || !User::isValidRoles($data['roles'] ?? [])) {
             $data['roles'] = [User::ROLE_CLIENT];
         }
 
-        $roles         = $data['roles'];
-        $data['roles'] = json_encode($data['roles']);
-
-        $user = User::create($data);
+        $roles               = $data['roles'];
+        $data['roles']       = json_encode($data['roles']);
+        $data['merchant_id'] = $data['merchantId'];
+        $data['status_id']   = $data['statusId'];
+        $user                = User::create($data);
 
         return MetaResponse::make([
             'token' => $user->createToken('MyToken', [$roles])->plainTextToken,

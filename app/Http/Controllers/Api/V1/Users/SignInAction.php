@@ -75,7 +75,7 @@ class SignInAction extends JsonApiController
         return MetaResponse::make([
             'user'  => $user->name,
             'email' => $user->email,
-            'token' => $user->createToken('MyToken', json_decode($user->roles, true))->plainTextToken,
+            'token' => $user->createToken('MyToken', [$user->roles])->plainTextToken,
         ]);
     }
 }
