@@ -8,13 +8,11 @@ declare(strict_types=1);
 
 namespace App\JsonApi\V1\Orders;
 
-use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;
+use App\JsonApi\Query\ActionsQuery;
 use LaravelJsonApi\Validation\Rule as JsonApiRule;
 
-class OrderQuery extends ResourceQuery
+class OrderQuery extends ActionsQuery
 {
-    public int $statusId;
-
     /**
      * Get the validation rules that apply to the request query parameters.
      *
