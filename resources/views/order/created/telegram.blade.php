@@ -4,7 +4,8 @@
 
         <b>№:</b> {{$order->number}}
 
-        <b>Адрес:</b> {{$order->address}}
+        <b>Адрес:</b>
+        {{$order->address}}
 
         <b>GUID Поставщика:</b> {{$order->merchant->id}}
         <b>GUID Заказа:</b> {{$order->id}}
