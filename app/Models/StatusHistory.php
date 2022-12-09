@@ -15,6 +15,8 @@ class StatusHistory extends BaseModel
 {
     use HasFactory;
 
+    public const MERCHANT_ID_COLUMN = 'merchant_id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +26,7 @@ class StatusHistory extends BaseModel
         'order_id',
         'user_id',
         'status_id',
-        'merchant_id',
+        self::MERCHANT_ID_COLUMN,
         'description',
     ];
 

@@ -61,6 +61,8 @@ class User extends Authenticatable
         'notification' => self::NOTIFICATION_OPTIONS,
     ];
 
+    public const MERCHANT_ID_COLUMN = 'merchant_id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -70,7 +72,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'merchant_id',
+        self::MERCHANT_ID_COLUMN,
         'status_id',
         'roles',
     ];

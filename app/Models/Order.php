@@ -88,11 +88,13 @@ class Order extends BaseModel
     public const VIEW_ORDER_CREATED = 'order.created';
     public const VIEW_ORDER_UPDATED = 'order.updated';
 
+    public const MERCHANT_ID_COLUMN = 'merchant_id';
+
     protected $fillable = [
         'number',
         'address',
         'description',
-        'merchant_id',
+        self::MERCHANT_ID_COLUMN,
         'status_id',
         'user_id',
         'weight',
@@ -148,7 +150,7 @@ class Order extends BaseModel
         if ($this->status_id === $statusId) {
             throw JsonApiException::error([
                 'status' => Response::HTTP_METHOD_NOT_ALLOWED,
-                'detail' => 'Данный статус уже был установлен',
+                'detail' => __('toms.orders.status.already.set'),
             ]);
         }
 
@@ -159,7 +161,7 @@ class Order extends BaseModel
         if ($status == []) {
             throw JsonApiException::error([
                 'status' => Response::HTTP_NOT_MODIFIED,
-                'detail' => 'Несуществующий статус',
+                'detail' => __('toms.orders.defunct.status'),
             ]);
         }
 
@@ -169,7 +171,7 @@ class Order extends BaseModel
         ) {
             throw JsonApiException::error([
                 'status' => Response::HTTP_NOT_MODIFIED,
-                'detail' => 'Несменяемый статус',
+                'detail' => __('toms.orders.status.not.variable'),
             ]);
         }
 
