@@ -16,7 +16,7 @@ class OrderRequest extends ResourceRequest
     /**
      * Get the validation rules for the resource.
      *
-     * @return array
+     * @return array<string,mixed>
      */
     public function rules(): array
     {

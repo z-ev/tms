@@ -29,12 +29,4 @@ abstract class BaseSchema extends Schema
         return PagePagination::make()
             ->withDefaultPerPage(10);
     }
-
-    /**
-     * TODO: REMOVE.
-     */
-    public function authorizable(): bool
-    {
-        return false;
-    }
 }

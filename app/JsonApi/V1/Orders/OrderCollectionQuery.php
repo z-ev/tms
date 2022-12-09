@@ -16,7 +16,7 @@ class OrderCollectionQuery extends ResourceQuery
     /**
      * Get the validation rules that apply to the request query parameters.
      *
-     * @return array
+     * @return array<string,mixed>
      */
     public function rules(): array
     {

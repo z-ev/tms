@@ -73,9 +73,9 @@ class OrderSchema extends BaseSchema
     /**
      * Get the resource fields.
      *
-     * @return array
+     * @return iterable<mixed>
      */
-    public function fields(): array
+    public function fields(): iterable
     {
         return [
             ID::make()->uuid()->clientIds(),
@@ -114,11 +114,9 @@ class OrderSchema extends BaseSchema
     }
 
     /**
-     * Get the resource filters.
-     *
-     * @return array
+     * {@inheritDoc}
      */
-    public function filters(): array
+    public function filters(): iterable
     {
         return [
             WhereIdIn::make($this),
