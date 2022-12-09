@@ -66,7 +66,7 @@ class SignInAction extends JsonApiController
         if (!Auth::attempt($request->only(['email', 'password']))) {
             throw JsonApiException::error([
                 'status' => Response::HTTP_UNAUTHORIZED,
-                'detail' => 'The username or password you entered is incorrect',
+                'detail' => __('toms.users.incorrect'),
             ]);
         }
 
