@@ -15,6 +15,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "nunomaduro/larastan": "^2.2",
         "vimeo/psalm": "^5.0"
     },
     "require-dev": {
@@ -25,7 +26,6 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "nunomaduro/larastan": "^2.2",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },
@@ -61,7 +61,7 @@
         ],
         "phpstan": [
             "Composer\\Config::disableProcessTimeout",
-            "./vendor/bin/phpstan analyse --memory-limit=2G -c phpstan.neon"
+            "./vendor/bin/phpstan analyse --memory-limit=2G -c ./phpstan.neon"
         ],
         "psalm": [
             "Composer\\Config::disableProcessTimeout",
