@@ -30,11 +30,13 @@ class SignUpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'     => 'required|min:3|max:30',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required',
-            'roles'    => 'nullable',
-            'roles.*'  => 'string',
+            'name'       => 'required|min:3|max:30',
+            'email'      => 'required|email|unique:users,email',
+            'password'   => 'required',
+            'merchantId' => 'uuid',
+            'statusId'   => 'numeric',
+            'roles'      => 'nullable',
+            'roles.*'    => 'string',
         ];
     }
 
