@@ -119,7 +119,7 @@ class OrderSchema extends BaseSchema
     public function filters(): iterable
     {
         return [
-            WhereIdIn::make($this),
+            WhereIdIn::make($this)->delimiter(','),
             WhereIn::make('merchantId')->delimiter(','),
             WhereIn::make('statusId')->delimiter(','),
             WhereIn::make('userId')->delimiter(','),
