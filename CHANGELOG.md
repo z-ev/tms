@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/z-ev/tms/compare/v0.1.2...v0.1.3) (2022-12-09)
+
+
+### Features
+
+* **Order:** add authorizer for order actions ([86e305c](https://github.com/z-ev/tms/commit/86e305c4457feda3555b004a4db7d7a70a7993ab))
+
+
+### Bug Fixes
+
+* **Middleware:** correct CheckPermissions.php ([fa30fbe](https://github.com/z-ev/tms/commit/fa30fbe95819df1114e522594be503a1d446d10f))
+* **Order:** correct SignUpAction.php ([eec2728](https://github.com/z-ev/tms/commit/eec272853fd1235773c798c58f0803bc87901d8d))
+* **Order:** correct updateStatus method ([f6b00d0](https://github.com/z-ev/tms/commit/f6b00d0e1e3e2b98cc9d4e459b0cc076a2308891))
+
 ### [0.1.2](https://github.com/z-ev/tms/compare/v0.1.1...v0.1.2) (2022-12-09)
 
 ### [0.1.1](https://github.com/z-ev/tms/compare/v0.1.0...v0.1.1) (2022-12-09)
