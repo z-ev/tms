@@ -1,11 +1,9 @@
 # Track Order Management System (TOMS)
-[Trunk Based Development](https://trunkbaseddevelopment.com/)
-
-[Standard version](https://github.com/conventional-changelog/standard-version)
-
+[Trunk Based Development](https://trunkbaseddevelopment.com/) |
+[Standard version](https://github.com/conventional-changelog/standard-version) |
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
 
-[CHANGELOG](CHANGELOG.md)
+[CHANGELOG](CHANGELOG.md) (История изменений проекта)
 
 ## Содержание
 1. [Ценность](#ценность)
