@@ -22,8 +22,9 @@ class UpdateStatusAction extends JsonApiController
      * @param OrderQuery  $request
      * @param Order       $order
      *
-     * @return MetaResponse
      * @throws JsonApiException
+     *
+     * @return MetaResponse
      */
     public function __invoke(
         OrderSchema $schema,
